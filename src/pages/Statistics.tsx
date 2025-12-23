@@ -99,12 +99,13 @@ const Statistics = () => {
                                     boxShadow: '0 8px 24px rgba(0, 0, 0, 0.1)',
                                     padding: '8px 12px'
                                 }}
+                                formatter={(value) => [`${value}개`, '완료']}
                             />
                             <Bar dataKey="count" radius={[6, 6, 0, 0]}>
-                                {weeklyData.map((_, index) => (
+                                {weeklyData.map((item, index) => (
                                     <Cell
                                         key={`cell-${index}`}
-                                        fill={index === new Date().getDay() - 1 ? 'var(--primary)' : '#e2e8f0'}
+                                        fill={item.count > 0 ? 'var(--primary)' : '#e2e8f0'}
                                     />
                                 ))}
                             </Bar>
