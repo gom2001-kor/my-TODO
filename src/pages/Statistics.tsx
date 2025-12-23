@@ -101,7 +101,7 @@ const Statistics = () => {
                                 }}
                             />
                             <Bar dataKey="count" radius={[6, 6, 0, 0]}>
-                                {weeklyData.map((entry, index) => (
+                                {weeklyData.map((_, index) => (
                                     <Cell
                                         key={`cell-${index}`}
                                         fill={index === new Date().getDay() - 1 ? 'var(--primary)' : '#e2e8f0'}

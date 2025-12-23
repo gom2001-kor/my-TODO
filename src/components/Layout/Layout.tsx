@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import type { ReactNode, FC } from 'react';
 import BottomNav from './BottomNav';
 
 interface LayoutProps {
@@ -7,7 +7,7 @@ interface LayoutProps {
     setActiveTab: (tab: string) => void;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children, activeTab, setActiveTab }) => {
+const Layout: FC<LayoutProps> = ({ children, activeTab, setActiveTab }) => {
     return (
         <div className="layout-container">
             <main className="content">

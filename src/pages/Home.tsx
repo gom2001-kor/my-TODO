@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Plus, CheckCircle, TrendingUp, CalendarDays } from 'lucide-react';
+import { Plus, TrendingUp, CalendarDays } from 'lucide-react';
 import { useTodo } from '../context/TodoContext';
 import TodoItem from '../components/Tasks/TodoItem';
 import AddTodoModal from '../components/Tasks/AddTodoModal';
