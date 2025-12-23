@@ -1,5 +1,5 @@
-import React from 'react';
-import { Home, List, Calendar, BarChart2 } from 'lucide-react';
+import type { FC } from 'react';
+import { Home, List, Calendar, BarChart2, AlertTriangle } from 'lucide-react';
 import './BottomNav.css';
 
 interface BottomNavProps {
@@ -7,10 +7,11 @@ interface BottomNavProps {
     setActiveTab: (tab: string) => void;
 }
 
-const BottomNav: React.FC<BottomNavProps> = ({ activeTab, setActiveTab }) => {
+const BottomNav: FC<BottomNavProps> = ({ activeTab, setActiveTab }) => {
     const tabs = [
         { id: 'home', icon: Home, label: '홈' },
         { id: 'tasks', icon: List, label: '작업' },
+        { id: 'overdue', icon: AlertTriangle, label: '미완료' },
         { id: 'calendar', icon: Calendar, label: '캘린더' },
         { id: 'stats', icon: BarChart2, label: '통계' },
     ];
@@ -24,7 +25,7 @@ const BottomNav: React.FC<BottomNavProps> = ({ activeTab, setActiveTab }) => {
                     onClick={() => setActiveTab(id)}
                 >
                     <div className="icon-wrapper">
-                        <Icon size={24} />
+                        <Icon size={22} />
                     </div>
                     <span>{label}</span>
                 </button>

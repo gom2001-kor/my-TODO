@@ -4,6 +4,7 @@ import Layout from './components/Layout/Layout';
 
 import Home from './pages/Home';
 import TaskTracker from './pages/TaskTracker';
+import Overdue from './pages/Overdue';
 import CalendarView from './pages/CalendarView';
 import Statistics from './pages/Statistics';
 
@@ -21,6 +22,7 @@ function AppContent({ activeTab, setActiveTab }: { activeTab: string, setActiveT
     switch (activeTab) {
       case 'home': return <Home />;
       case 'tasks': return <TaskTracker />;
+      case 'overdue': return <Overdue />;
       case 'calendar': return <CalendarView />;
       case 'stats': return <Statistics />;
       default: return <Home />;
