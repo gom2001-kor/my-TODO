@@ -1,0 +1,163 @@
+.task-tracker {
+    padding: 24px;
+    padding-bottom: 140px;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.tracker-header {
+    margin-bottom: 8px;
+}
+
+.tracker-header h1 {
+    font-size: 26px;
+    font-weight: 800;
+    margin-bottom: 24px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    margin-bottom: 16px;
+    transition: all 0.2s ease;
+}
+
+.search-bar:focus-within {
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.15);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    color: var(--text-main);
+}
+
+.search-bar input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Filter scroll container */
+.filter-scroll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 0 12px 0;
+    margin-bottom: 16px;
+    /* Hide scrollbar */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.filter-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    background: white;
+    color: var(--text-muted);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 2px solid transparent;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+/* Emoji icon styling */
+.filter-chip-icon {
+    font-size: 14px;
+    line-height: 1;
+    font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.filter-chip:hover {
+    border-color: rgba(102, 126, 234, 0.3);
+    color: var(--primary);
+}
+
+.filter-chip.active {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.3);
+}
+
+.status-tabs {
+    display: flex;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: var(--radius-sm);
+    padding: 4px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.status-tabs button {
+    flex: 1;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.status-tabs button:hover {
+    color: var(--primary);
+}
+
+.status-tabs button.active {
+    color: var(--primary);
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.task-list-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.empty-state {
+    padding: 48px 24px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* FAB for TaskTracker */
+.tracker-fab {
+    position: fixed;
+    bottom: 110px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 24px rgba(102, 126, 234, 0.4);
+    z-index: 500;
+    transition: all 0.3s ease;
+}
+
+.tracker-fab:hover {
+    transform: scale(1.1);
+    box-shadow: 0 12px 32px rgba(102, 126, 234, 0.5);
+}
+
+@media (min-width: 480px) {
+    .tracker-fab {
+        right: calc(50% - 240px + 24px);
+    }
+}
