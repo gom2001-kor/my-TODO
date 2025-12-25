@@ -51,7 +51,12 @@ const AddTodoModal: React.FC<AddTodoModalProps> = ({ isOpen, onClose }) => {
             <div className="modal-content glass-card" onClick={(e) => e.stopPropagation()}>
                 <div className="modal-header">
                     <h2>새로운 할 일 추가</h2>
-                    <button onClick={onClose} className="close-btn" type="button">
+                    <button
+                        onClick={onClose}
+                        className="close-btn"
+                        type="button"
+                        aria-label="닫기"
+                    >
                         <X size={24} />
                     </button>
                 </div>
@@ -65,6 +70,7 @@ const AddTodoModal: React.FC<AddTodoModalProps> = ({ isOpen, onClose }) => {
                             onChange={(e) => setTitle(e.target.value)}
                             className="title-input"
                             autoFocus
+                            aria-label="할 일 제목"
                         />
                     </div>
 
@@ -76,6 +82,7 @@ const AddTodoModal: React.FC<AddTodoModalProps> = ({ isOpen, onClose }) => {
                                 className={`cat-btn ${category === cat.id ? 'active' : ''}`}
                                 style={{ '--cat-color': cat.color } as React.CSSProperties}
                                 onClick={() => setCategory(cat.id)}
+                                aria-pressed={category === cat.id}
                             >
                                 <span>{cat.icon}</span>
                                 <span className="cat-label">{cat.label}</span>
@@ -85,12 +92,22 @@ const AddTodoModal: React.FC<AddTodoModalProps> = ({ isOpen, onClose }) => {
 
                     <div className="row">
                         <div className="input-field">
-                            <label><CalIcon size={14} /> 날짜</label>
-                            <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
+                            <label htmlFor="todo-date"><CalIcon size={14} /> 날짜</label>
+                            <input
+                                id="todo-date"
+                                type="date"
+                                value={date}
+                                onChange={(e) => setDate(e.target.value)}
+                            />
                         </div>
                         <div className="input-field">
-                            <label><Clock size={14} /> 시간</label>
-                            <input type="time" value={time} onChange={(e) => setTime(e.target.value)} />
+                            <label htmlFor="todo-time"><Clock size={14} /> 시간</label>
+                            <input
+                                id="todo-time"
+                                type="time"
+                                value={time}
+                                onChange={(e) => setTime(e.target.value)}
+                            />
                         </div>
                     </div>
 
@@ -103,6 +120,7 @@ const AddTodoModal: React.FC<AddTodoModalProps> = ({ isOpen, onClose }) => {
                                     type="button"
                                     className={`prio-btn ${priority === p ? 'active' : ''} prio-${p}`}
                                     onClick={() => setPriority(p)}
+                                    aria-pressed={priority === p}
                                 >
                                     {p === 'high' ? '높음' : p === 'medium' ? '보통' : '낮음'}
                                 </button>
@@ -116,6 +134,7 @@ const AddTodoModal: React.FC<AddTodoModalProps> = ({ isOpen, onClose }) => {
                             value={description}
                             onChange={(e) => setDescription(e.target.value)}
                             rows={2}
+                            aria-label="메모/설명"
                         />
                     </div>
 
