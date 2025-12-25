@@ -56,6 +56,7 @@ export const TodoProvider: FC<{ children: ReactNode }> = ({ children }) => {
     );
 };
 
+// eslint-disable-next-line react-refresh/only-export-components
 export const useTodo = () => {
     const context = useContext(TodoContext);
     if (!context) throw new Error('useTodo must be used within a TodoProvider');
